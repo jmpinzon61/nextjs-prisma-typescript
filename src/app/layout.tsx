@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="container mx-auto mt-5" > 
+      <body className="container mx-auto mt-5" cz-shortcut-listen="true"> 
         <Navbar />
         {children}
         
