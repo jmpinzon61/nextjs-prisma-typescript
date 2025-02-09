@@ -15,7 +15,7 @@ function NewPage({ params }: { params: { id: string } }) {
 
     async function fetchData(){
       if (id) {
-        axios.get(`/api/task/${id}`)
+        axios.get(`/api/tasks/${id}`)
           .then(res => {
             setValue('title', res.data.title)
             setValue('description', res.data.description)
@@ -30,9 +30,9 @@ function NewPage({ params }: { params: { id: string } }) {
 
   const onSubmit = handleSubmit(async data => {
     if (id) {
-      await axios.put(`/api/task/${id}`, data)
+      await axios.put(`/api/tasks/${id}`, data)
     } else {
-      await axios.post('/api/task', data);
+      await axios.post('/api/tasks', data);
     }
 
     router.push('/')
@@ -66,7 +66,7 @@ function NewPage({ params }: { params: { id: string } }) {
             // alert(id)
             onClick={async () => {
               if (confirm('Are you sure you want to delete this task')) {
-                await axios.delete(`/api/task/${id}`)
+                await axios.delete(`/api/tasks/${id}`)
                 router.push('/')
                 router.refresh()
               }
