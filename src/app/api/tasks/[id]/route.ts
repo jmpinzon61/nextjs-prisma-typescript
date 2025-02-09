@@ -5,6 +5,7 @@ interface Params {
     params: { id: string };
 }
 
+
 export async function GET(request: Request, { params }: { params: { id: string } }) {
     const task = await prisma.task.findFirst({
         where: {
