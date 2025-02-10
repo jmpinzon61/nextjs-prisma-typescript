@@ -18,12 +18,14 @@ async function loadTasks(){
   return await prisma.task.findMany()
 }
 
+export const dynamic = 'force-dynamic'
+
 export default async function HomePage()  {
   const tasks = await loadTasks()
 
   return (
     <div className="grid md:lg:grid-cols-2 lg:grid-cols-3 gap-3 mt-5">
-      {tasks.map(task => (
+      {tasks.map((task) => (
         <TaskCard task={task} key={task.id}/>
       ))}
     </div>
