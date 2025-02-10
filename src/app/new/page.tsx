@@ -5,11 +5,11 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useParams } from 'next/navigation';
 
-function NewPage({ params }: { params: { id: string } }) {
+function NewPage() {
 
   const { handleSubmit, register, setValue } = useForm()
   const router = useRouter()
-  const { id } = useParams();
+  const { id } = useParams<{id: string}>();
 
   useEffect(() => {
 
@@ -25,7 +25,7 @@ function NewPage({ params }: { params: { id: string } }) {
       }
     }
     fetchData()
-  }, [params,setValue])
+  }, [id,setValue])
 
 
   const onSubmit = handleSubmit(async data => {
